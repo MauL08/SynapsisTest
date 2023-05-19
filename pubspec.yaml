@@ -34,7 +34,9 @@ dependencies:
 
   battery_info: ^1.1.1
   device_info_plus: ^9.0.0
+  fl_chart: ^0.62.0
   flutter_login: ^4.1.1
+  flutter_map: ^4.0.0
   geolocator: ^9.0.2
   get: ^4.6.5
   intl: ^0.18.1

@@ -112,7 +112,7 @@ class _APageState extends State<APage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'X: ${state.accelerometerStatusX}',
+                                        'X: ${state.accelerometerStatusX.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -121,7 +121,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Y: ${state.accelerometerStatusY}',
+                                        'Y: ${state.accelerometerStatusY.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -130,7 +130,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Z: ${state.accelerometerStatusZ}',
+                                        'Z: ${state.accelerometerStatusZ.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -183,7 +183,7 @@ class _APageState extends State<APage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'X: ${state.magnetometerStatusX}',
+                                        'X: ${state.gyroStatusX.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -192,7 +192,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Y: ${state.magnetometerStatusY}',
+                                        'Y: ${state.gyroStatusY.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -201,7 +201,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Z: ${state.magnetometerStatusZ}',
+                                        'Z: ${state.gyroStatusZ.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -262,7 +262,7 @@ class _APageState extends State<APage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'X: ${state.gyroStatusX}',
+                                        'X: ${state.magnetometerStatusX.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -271,7 +271,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Y: ${state.gyroStatusY}',
+                                        'Y: ${state.magnetometerStatusY.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -280,7 +280,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Z: ${state.gyroStatusZ}',
+                                        'Z: ${state.magnetometerStatusZ.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -324,7 +324,7 @@ class _APageState extends State<APage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        'Lat: ${state.latitude}',
+                                        'Lat: ${state.latitude.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -333,7 +333,7 @@ class _APageState extends State<APage> {
                                         height: 6,
                                       ),
                                       Text(
-                                        'Long: ${state.longitude}',
+                                        'Long: ${state.longitude.value}',
                                         style: heading2Style.copyWith(
                                           color: secondaryColor,
                                         ),
@@ -362,7 +362,7 @@ class _APageState extends State<APage> {
                               children: [
                                 state.getCurrentBatteryIcon(),
                                 Text(
-                                  '${state.currentBattery}%',
+                                  '${state.currentBattery.value}%',
                                   style: heading1Style.copyWith(
                                     color: backgroundColor,
                                     fontSize: 24,
