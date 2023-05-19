@@ -69,8 +69,13 @@ class AState {
   }
 
   Future getCurrentBattery() async {
-    var temp = await BatteryInfoPlugin().androidBatteryInfo;
-    currentBattery.value = temp!.batteryLevel!.toInt();
+    if (Platform.isAndroid) {
+      var temp = await BatteryInfoPlugin().androidBatteryInfo;
+      currentBattery.value = temp!.batteryLevel!.toInt();
+    } else {
+      var temp = await BatteryInfoPlugin().iosBatteryInfo;
+      currentBattery.value = temp!.batteryLevel!.toInt();
+    }
   }
 
   Widget getCurrentBatteryIcon() {
