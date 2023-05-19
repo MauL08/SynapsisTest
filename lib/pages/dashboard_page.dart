@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/a_page/a_page.dart';
 import 'package:synapsis_test/pages/b_page/b_page.dart';
 import 'package:synapsis_test/pages/c_page/c_page.dart';
@@ -25,7 +26,9 @@ class _DashboardPageState extends State<DashboardPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HUHU'),
+        backgroundColor: backgroundColor2,
+        title: Text('Synapsis.ID Challenge'),
+        centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
@@ -40,6 +43,12 @@ class _DashboardPageState extends State<DashboardPage> {
       drawer: DrawerPage(),
       body: _pages[_selectedItem],
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 0,
+        backgroundColor: backgroundColor,
+        selectedItemColor: primaryColor,
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        selectedIconTheme: IconThemeData(size: 30),
+        unselectedItemColor: secondaryColor,
         currentIndex: _selectedItem,
         onTap: ((value) {
           setState(() {
