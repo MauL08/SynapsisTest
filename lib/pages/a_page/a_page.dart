@@ -33,9 +33,9 @@ class _APageState extends State<APage> {
         ),
         builder: ((context, snapshot) {
           return Padding(
-            padding: EdgeInsets.fromLTRB(8, 12, 8, 12),
+            padding: const EdgeInsets.fromLTRB(8, 12, 8, 12),
             child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   const SizedBox(
@@ -213,7 +213,7 @@ class _APageState extends State<APage> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 4,
                         ),
                         Row(
@@ -317,15 +317,6 @@ class _APageState extends State<APage> {
                                     ),
                                   ),
                                   const SizedBox(
-                                    height: 4,
-                                  ),
-                                  Text(
-                                    '(${state.phoneInfo})',
-                                    style: heading3Style.copyWith(
-                                      color: secondaryColor,
-                                    ),
-                                  ),
-                                  const SizedBox(
                                     height: 12,
                                   ),
                                   Column(
@@ -354,7 +345,7 @@ class _APageState extends State<APage> {
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 28,
                         ),
                         Row(
