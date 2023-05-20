@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
@@ -108,7 +110,24 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: backgroundColor2,
                       padding: pagePadding,
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      state.usernameText.text = 'Anonym';
+
+                      final isAuthenticated = await state.authBio();
+
+                      if (isAuthenticated) {
+                        if (!mounted) return;
+                        state.postLogin();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DashboardPage();
+                            },
+                          ),
+                        );
+                      }
+                    },
                     child: Column(
                       children: [
                         Icon(
