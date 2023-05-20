@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
+import 'package:synapsis_test/pages/b_page/b_state.dart';
 import 'package:synapsis_test/pages/dashboard_page.dart';
 import 'package:synapsis_test/pages/login_page/login_state.dart';
 import 'package:synapsis_test/widget/text_field_widget.dart';
@@ -16,6 +17,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final LoginState state = Get.put(LoginState());
+  final BState stateB = Get.put(BState());
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                       padding: pagePadding,
                     ),
                     onPressed: () async {
-                      state.usernameText.text = 'Anonym';
+                      state.usernameText.text = stateB.deviceData['model'];
 
                       final isAuthenticated = await state.authBio();
 
