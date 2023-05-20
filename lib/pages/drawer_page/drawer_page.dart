@@ -21,6 +21,7 @@ class DrawerPage extends StatelessWidget {
               child: Icon(
                 Icons.person,
                 size: 54,
+                color: Colors.white,
               ),
             ),
             SizedBox(
@@ -29,7 +30,7 @@ class DrawerPage extends StatelessWidget {
             Text(
               'Hello, USER',
               style: heading1Style.copyWith(
-                color: secondaryColor,
+                color: Colors.white,
                 fontSize: 20,
               ),
             ),
