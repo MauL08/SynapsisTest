@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
+import 'package:synapsis_test/pages/dashboard_page.dart';
 import 'package:synapsis_test/pages/login_page/login_state.dart';
 import 'package:synapsis_test/widget/text_field_widget.dart';
 
@@ -34,16 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(
-                height: 16,
-              ),
-              Text(
-                'Login Screen',
-                style: heading1Style.copyWith(
-                  color: primaryColor,
-                ),
-              ),
-              SizedBox(
-                height: 32,
+                height: 40,
               ),
               TextFieldWidget(
                 controller: state.usernameText,
@@ -71,7 +63,12 @@ class _LoginPageState extends State<LoginPage> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushAndRemoveUntil(context,
+                      MaterialPageRoute(builder: (context) {
+                    return DashboardPage();
+                  }), (route) => false);
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
