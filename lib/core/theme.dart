@@ -18,7 +18,7 @@ TextStyle heading1Style = const TextStyle(
   fontWeight: FontWeight.bold,
 );
 TextStyle heading2Style = const TextStyle(
-  fontSize: 12,
+  fontSize: 14,
   color: Colors.black,
   fontWeight: FontWeight.bold,
 );

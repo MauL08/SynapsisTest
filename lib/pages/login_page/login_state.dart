@@ -7,6 +7,8 @@ import 'package:local_auth/local_auth.dart';
 
 class LoginState {
   RxBool isLoading = false.obs;
+  RxBool isLoadingUser = false.obs;
+
   RxString user = ''.obs;
   final auth = LocalAuthentication(); // Biometrics
 
@@ -17,6 +19,16 @@ class LoginState {
     backgroundColor: Colors.red,
     content: Text(
       'Form error, please check again.',
+      style: heading2Style.copyWith(
+        color: Colors.white,
+      ),
+    ),
+  );
+
+  final snackBarSuccess = SnackBar(
+    backgroundColor: Colors.lightGreen,
+    content: Text(
+      'Login successful',
       style: heading2Style.copyWith(
         color: Colors.white,
       ),
@@ -55,10 +67,10 @@ class LoginState {
   }
 
   void getDataLoggedUser() async {
-    isLoading.value = true;
+    isLoadingUser.value = true;
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     user.value = prefs.getString('name') ?? '';
-    isLoading.value = false;
+    isLoadingUser.value = false;
   }
 
   void postLogout() async {

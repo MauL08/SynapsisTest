@@ -43,7 +43,7 @@ class _DrawerPageState extends State<DrawerPage> {
               height: 24,
             ),
             Obx(
-              () => state.isLoading.value
+              () => state.isLoadingUser.value
                   ? Center(
                       child: CircularProgressIndicator(
                         color: primaryColor,

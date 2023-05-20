@@ -6,6 +6,7 @@ import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/b_page/b_state.dart';
 import 'package:synapsis_test/pages/dashboard_page.dart';
 import 'package:synapsis_test/pages/login_page/login_state.dart';
+import 'package:synapsis_test/pages/login_page/qr_page.dart';
 import 'package:synapsis_test/widget/text_field_widget.dart';
 
 class LoginPage extends StatefulWidget {
@@ -82,6 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                                 .showSnackBar(state.snackBar);
                           } else {
                             state.postLogin();
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(state.snackBarSuccess);
                             Navigator.pushAndRemoveUntil(context,
                                 MaterialPageRoute(builder: (context) {
                               return DashboardPage();
@@ -120,6 +123,8 @@ class _LoginPageState extends State<LoginPage> {
                       if (isAuthenticated) {
                         if (!mounted) return;
                         state.postLogin();
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(state.snackBarSuccess);
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
@@ -155,7 +160,12 @@ class _LoginPageState extends State<LoginPage> {
                       backgroundColor: backgroundColor2,
                       padding: pagePadding,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return QRPage();
+                      }));
+                    },
                     child: Column(
                       children: [
                         Icon(

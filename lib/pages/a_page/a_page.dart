@@ -114,7 +114,7 @@ class _APageState extends State<APage> {
                                       children: [
                                         Text(
                                           'X: ${state.accelerometerStatusX.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -123,7 +123,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Y: ${state.accelerometerStatusY.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -132,7 +132,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Z: ${state.accelerometerStatusZ.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         )
@@ -185,7 +185,7 @@ class _APageState extends State<APage> {
                                       children: [
                                         Text(
                                           'X: ${state.gyroStatusX.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -194,7 +194,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Y: ${state.gyroStatusY.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -203,7 +203,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Z: ${state.gyroStatusZ.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         )
@@ -264,7 +264,7 @@ class _APageState extends State<APage> {
                                       children: [
                                         Text(
                                           'X: ${state.magnetometerStatusX.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -273,7 +273,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Y: ${state.magnetometerStatusY.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -282,7 +282,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Z: ${state.magnetometerStatusZ.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         )
@@ -326,7 +326,7 @@ class _APageState extends State<APage> {
                                       children: [
                                         Text(
                                           'Lat: ${state.latitude.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
@@ -335,7 +335,7 @@ class _APageState extends State<APage> {
                                         ),
                                         Text(
                                           'Long: ${state.longitude.value}',
-                                          style: heading2Style.copyWith(
+                                          style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
                                         ),
