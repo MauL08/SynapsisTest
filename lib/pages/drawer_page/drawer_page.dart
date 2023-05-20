@@ -69,7 +69,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 }), (route) => false);
               },
               style: ElevatedButton.styleFrom(
-                backgroundColor: primaryColor,
+                backgroundColor: Colors.red,
               ),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
