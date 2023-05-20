@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io' show Platform;
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:synapsis_test/core/db_function.dart';
 
 class BState {
   RxBool isLoadingPhoneData = false.obs;
@@ -16,7 +18,10 @@ class BState {
   RxString versionCode = ''.obs;
 
   TextEditingController inputText = TextEditingController();
-  TextEditingController dateText = TextEditingController();
+
+  RxBool isLoadingData = false.obs;
+  RxList dataList = List.empty().obs;
+  RxMap<String, dynamic> detailData = <String, dynamic>{}.obs;
 
   void initPhoneBuildData() async {
     isLoadingPhoneData.value = true;
@@ -91,5 +96,45 @@ class BState {
       'utsname.version:': data.utsname.version,
       'utsname.machine:': data.utsname.machine,
     };
+  }
+
+  Future getAll() async {
+    isLoadingData.value = true;
+    dataList.value = await DBFunction.getAllData();
+    isLoadingData.value = false;
+  }
+
+  Future getById(int id) async {
+    isLoadingData.value = true;
+    var temp = await DBFunction.getDataById(id);
+    inputText.text = temp[0]['title'];
+    isLoadingData.value = false;
+  }
+
+  Future add() async {
+    isLoadingData.value = true;
+    await DBFunction.postData(
+      inputText.text,
+      DateFormat.yMMMMEEEEd().format(DateTime.now()),
+    );
+    inputText.clear();
+    isLoadingData.value = false;
+  }
+
+  Future update(int id) async {
+    isLoadingData.value = true;
+    await DBFunction.updateData(
+      id,
+      inputText.text,
+      DateFormat.yMMMMEEEEd().format(DateTime.now()),
+    );
+    inputText.clear();
+    isLoadingData.value = false;
+  }
+
+  Future delete(int id) async {
+    isLoadingData.value = true;
+    await DBFunction.deleteData(id);
+    isLoadingData.value = false;
   }
 }

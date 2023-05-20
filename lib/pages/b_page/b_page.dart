@@ -20,6 +20,7 @@ class _BPageState extends State<BPage> {
   void initState() {
     super.initState();
     state.initPhoneBuildData();
+    state.getAll();
   }
 
   @override
@@ -239,72 +240,57 @@ class _BPageState extends State<BPage> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: backgroundColor2,
         onPressed: () {
-          BottomSheetWidget.getBottomSheetWidget(
-            context,
-            [
-              const SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Input Text',
-                style: heading1Style.copyWith(
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(
-                height: 28,
-              ),
-              Text(
-                'Text',
-                style: heading1Style.copyWith(
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              TextFieldWidget(
-                controller: state.inputText,
-                hint: 'Input text here',
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              Text(
-                'Date',
-                style: heading1Style.copyWith(
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              TextFieldWidget(
-                controller: state.dateText,
-                hint: DateTime.now().toString(),
-                enabled: false,
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(vertical: 16),
-                  backgroundColor: primaryColor,
-                ),
-                onPressed: () {},
-                child: Text('Add Text'),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-            ],
-          );
+          renderBottomSheet();
         },
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
+    );
+  }
+
+  renderBottomSheet() {
+    BottomSheetWidget.getBottomSheetWidget(
+      context,
+      [
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          'Input Text',
+          style: heading1Style.copyWith(
+            fontSize: 20,
+            color: Colors.white,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        const SizedBox(
+          height: 28,
+        ),
+        TextFieldWidget(
+          controller: state.inputText,
+          hint: 'Input text here',
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            backgroundColor: primaryColor,
+          ),
+          onPressed: () async {
+            state.add();
+            state.getAll();
+            Navigator.pop(context);
+          },
+          child: Text('Add Text'),
+        ),
+        const SizedBox(
+          height: 24,
+        ),
+      ],
     );
   }
 }
