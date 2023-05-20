@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/b_page/b_state.dart';
 import 'package:synapsis_test/widget/bottom_sheet_widget.dart';
 import 'package:synapsis_test/widget/text_field_widget.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class InputDataListWidget extends StatefulWidget {
   const InputDataListWidget({Key? key}) : super(key: key);
@@ -42,9 +42,47 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Icon(
-                                Icons.qr_code,
-                                color: backgroundColor,
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Center(
+                                        child: Container(
+                                          height: 300,
+                                          width: 300,
+                                          padding: EdgeInsets.all(16),
+                                          decoration: BoxDecoration(
+                                            color: Colors.white,
+                                            borderRadius:
+                                                BorderRadius.circular(8),
+                                          ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              QrImageView(
+                                                data:
+                                                    '${state.dataList[index]['title']}',
+                                                version: QrVersions.auto,
+                                                size: 200.0,
+                                              ),
+                                              SizedBox(height: 12),
+                                              Text(
+                                                '${state.dataList[index]['title']}',
+                                                style: heading1Style,
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Icon(
+                                  Icons.qr_code,
+                                  color: backgroundColor,
+                                ),
                               ),
                               SizedBox(
                                 width: 12,
