@@ -148,7 +148,7 @@ class _BPageState extends State<BPage> {
                                       ),
                                     ),
                                     Text(
-                                      '${state.deviceData['device']}',
+                                      '${state.buildNumber}',
                                       style: heading2Style.copyWith(
                                         color: secondaryColor,
                                       ),
@@ -208,7 +208,7 @@ class _BPageState extends State<BPage> {
                                       ),
                                     ),
                                     Text(
-                                      '${state.deviceData['version.codename']}',
+                                      '${state.versionCode}',
                                       style: heading2Style.copyWith(
                                         color: secondaryColor,
                                       ),

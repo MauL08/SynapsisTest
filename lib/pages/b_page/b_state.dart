@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'dart:io' show Platform;
 import 'package:get/get.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class BState {
   RxBool isLoadingPhoneData = false.obs;
@@ -11,11 +12,17 @@ class BState {
   RxMap<String, dynamic> deviceData = <String, dynamic>{}.obs;
   DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
 
+  RxString buildNumber = ''.obs;
+  RxString versionCode = ''.obs;
+
   TextEditingController inputText = TextEditingController();
   TextEditingController dateText = TextEditingController();
 
   void initPhoneBuildData() async {
     isLoadingPhoneData.value = true;
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    buildNumber.value = packageInfo.version;
+    versionCode.value = packageInfo.buildNumber;
     try {
       if (Platform.isAndroid) {
         deviceData.value =
