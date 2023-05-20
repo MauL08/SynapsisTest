@@ -6,6 +6,8 @@ class TextFieldWidget extends StatelessWidget {
     Key? key,
     this.prefixSection,
     this.suffixSection,
+    this.enabled,
+    this.obscureText,
     required this.controller,
     this.hint,
   }) : super(key: key);
@@ -13,6 +15,8 @@ class TextFieldWidget extends StatelessWidget {
   final Widget? prefixSection;
   final Widget? suffixSection;
   final TextEditingController controller;
+  final bool? enabled;
+  final bool? obscureText;
   final String? hint;
 
   @override
@@ -40,6 +44,8 @@ class TextFieldWidget extends StatelessWidget {
             child: TextFormField(
               controller: controller,
               style: heading2Style,
+              enabled: enabled,
+              obscureText: obscureText ?? false,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: hint,

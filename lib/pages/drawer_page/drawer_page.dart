@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/login_page/login_page.dart';
+import 'package:synapsis_test/pages/login_page/login_state.dart';
 
-class DrawerPage extends StatelessWidget {
-  const DrawerPage({super.key});
+class DrawerPage extends StatefulWidget {
+  DrawerPage({super.key});
+
+  @override
+  State<DrawerPage> createState() => _DrawerPageState();
+}
+
+class _DrawerPageState extends State<DrawerPage> {
+  final LoginState state = Get.put(LoginState());
+
+  @override
+  void initState() {
+    super.initState();
+    state.getDataLoggedUser();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +42,27 @@ class DrawerPage extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            Text(
-              'Hello, USER',
-              style: heading1Style.copyWith(
-                color: Colors.white,
-                fontSize: 20,
-              ),
+            Obx(
+              () => state.isLoading.value
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: primaryColor,
+                      ),
+                    )
+                  : Text(
+                      'Hello, ${state.user}',
+                      style: heading1Style.copyWith(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                    ),
             ),
             SizedBox(
               height: 24,
             ),
             ElevatedButton(
               onPressed: () {
+                state.postLogout();
                 Navigator.pushAndRemoveUntil(context,
                     MaterialPageRoute(builder: (context) {
                   return LoginPage();

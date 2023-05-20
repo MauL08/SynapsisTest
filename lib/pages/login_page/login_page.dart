@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           padding: pagePadding,
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 120,
               ),
               Text(
@@ -34,7 +34,7 @@ class _LoginPageState extends State<LoginPage> {
                   color: primaryColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               TextFieldWidget(
@@ -45,43 +45,59 @@ class _LoginPageState extends State<LoginPage> {
                   color: primaryColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               TextFieldWidget(
                 controller: state.passText,
+                obscureText: true,
                 hint: 'Password',
                 prefixSection: Icon(
                   Icons.lock,
                   color: primaryColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: primaryColor,
-                ),
-                onPressed: () {
-                  Navigator.pushAndRemoveUntil(context,
-                      MaterialPageRoute(builder: (context) {
-                    return DashboardPage();
-                  }), (route) => false);
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Login'),
-                    SizedBox(width: 8),
-                    Icon(
-                      Icons.login,
-                      color: secondaryColor,
-                    )
-                  ],
-                ),
+              Obx(
+                () => state.isLoading.value
+                    ? Center(
+                        child: CircularProgressIndicator(
+                          color: primaryColor,
+                        ),
+                      )
+                    : ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: primaryColor,
+                        ),
+                        onPressed: () {
+                          if (state.usernameText.value.text == '' ||
+                              state.passText.value.text == '') {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(state.snackBar);
+                          } else {
+                            state.postLogin();
+                            Navigator.pushAndRemoveUntil(context,
+                                MaterialPageRoute(builder: (context) {
+                              return DashboardPage();
+                            }), (route) => false);
+                          }
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Text('Login'),
+                            const SizedBox(width: 8),
+                            Icon(
+                              Icons.login,
+                              color: secondaryColor,
+                            )
+                          ],
+                        ),
+                      ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               Row(
@@ -100,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                           size: 48,
                           color: secondaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Text(
@@ -126,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                           size: 48,
                           color: secondaryColor,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 12,
                         ),
                         Text(
