@@ -58,15 +58,24 @@ class _DashboardPageState extends State<DashboardPage> {
         items: const [
           BottomNavigationBarItem(
             label: 'Page A',
-            icon: Icon(Icons.abc),
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 4),
+              child: Icon(Icons.sensor_occupied_rounded),
+            ),
           ),
           BottomNavigationBarItem(
             label: 'Page B',
-            icon: Icon(Icons.abc),
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 4),
+              child: Icon(Icons.phone_android_rounded),
+            ),
           ),
           BottomNavigationBarItem(
             label: 'Page C',
-            icon: Icon(Icons.abc),
+            icon: Padding(
+              padding: EdgeInsets.only(bottom: 4),
+              child: Icon(Icons.graphic_eq_rounded),
+            ),
           )
         ],
       ),
