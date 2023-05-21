@@ -65,7 +65,7 @@ class _DrawerPageState extends State<DrawerPage> {
                 state.postLogout();
                 Navigator.pushAndRemoveUntil(context,
                     MaterialPageRoute(builder: (context) {
-                  return LoginPage();
+                  return const LoginPage();
                 }), (route) => false);
               },
               style: ElevatedButton.styleFrom(

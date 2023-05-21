@@ -254,7 +254,7 @@ class _CPageState extends State<CPage> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                           Container(
                             width: MediaQuery.of(context).size.width,
                             padding: const EdgeInsets.all(16),
@@ -465,7 +465,7 @@ class _CPageState extends State<CPage> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                           Container(
                             width: MediaQuery.of(context).size.width,
                             padding: const EdgeInsets.all(16),
@@ -676,7 +676,7 @@ class _CPageState extends State<CPage> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                           Container(
                             width: MediaQuery.of(context).size.width,
                             padding: const EdgeInsets.all(16),
