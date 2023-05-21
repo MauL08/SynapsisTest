@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
+import 'package:synapsis_test/core/global_state.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/camera_page/camera_state.dart';
 import 'package:camera/camera.dart';
@@ -18,12 +19,13 @@ class CameraPage extends StatefulWidget {
 
 class _CameraPageState extends State<CameraPage> {
   final CameraState state = Get.put(CameraState());
+  final GlobalState globalState = Get.put(GlobalState());
 
   @override
   void initState() {
     super.initState();
-    state.getPosition();
-    state.getSensorStatus();
+    globalState.getPosition();
+    globalState.getSensorStatus();
   }
 
   @override
@@ -168,14 +170,14 @@ class _CameraPageState extends State<CameraPage> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    'Lat : ${state.latitude}',
+                                    'Lat : ${globalState.latitude}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    'Lat : ${state.longitude}',
+                                    'Lat : ${globalState.longitude}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
@@ -190,8 +192,8 @@ class _CameraPageState extends State<CameraPage> {
                                 mapController: MapController(),
                                 options: MapOptions(
                                   center: latlng.LatLng(
-                                    state.latitude.value,
-                                    state.longitude.value,
+                                    globalState.latitude.value,
+                                    globalState.longitude.value,
                                   ),
                                   zoom: 13.0,
                                 ),
@@ -205,8 +207,8 @@ class _CameraPageState extends State<CameraPage> {
                                     markers: [
                                       Marker(
                                           point: latlng.LatLng(
-                                            state.latitude.value,
-                                            state.longitude.value,
+                                            globalState.latitude.value,
+                                            globalState.longitude.value,
                                           ),
                                           builder: (context) {
                                             return const Icon(
@@ -245,21 +247,21 @@ class _CameraPageState extends State<CameraPage> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    'X : ${state.magnetometerStatusX}',
+                                    'X : ${globalState.magnetometerStatusX}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    'Y : ${state.magnetometerStatusY}',
+                                    'Y : ${globalState.magnetometerStatusY}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
-                                    'Z : ${state.magnetometerStatusZ}',
+                                    'Z : ${globalState.magnetometerStatusZ}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),

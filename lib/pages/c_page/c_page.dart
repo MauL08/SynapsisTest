@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
+import 'package:synapsis_test/core/global_state.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/c_page/c_state.dart';
 import 'package:latlong2/latlong.dart' as latlng;
@@ -15,12 +16,13 @@ class CPage extends StatefulWidget {
 
 class _CPageState extends State<CPage> {
   final CState state = Get.put(CState());
+  final GlobalState globalState = Get.put(GlobalState());
 
   @override
   void initState() {
     super.initState();
     state.getSensorStatus();
-    state.getPosition();
+    globalState.getPosition();
   }
 
   @override
@@ -694,8 +696,8 @@ class _CPageState extends State<CPage> {
                                     mapController: MapController(),
                                     options: MapOptions(
                                       center: latlng.LatLng(
-                                        state.latitude.value,
-                                        state.longitude.value,
+                                        globalState.latitude.value,
+                                        globalState.longitude.value,
                                       ),
                                       zoom: 13.0,
                                     ),
@@ -709,8 +711,8 @@ class _CPageState extends State<CPage> {
                                         markers: [
                                           Marker(
                                               point: latlng.LatLng(
-                                                state.latitude.value,
-                                                state.longitude.value,
+                                                globalState.latitude.value,
+                                                globalState.longitude.value,
                                               ),
                                               builder: (context) {
                                                 return const Icon(
@@ -766,7 +768,7 @@ class _CPageState extends State<CPage> {
                                           ),
                                         ),
                                         Text(
-                                          '${state.latitude.value}',
+                                          '${globalState.latitude.value}',
                                           style: heading2Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -796,7 +798,7 @@ class _CPageState extends State<CPage> {
                                           ),
                                         ),
                                         Text(
-                                          '${state.longitude.value}',
+                                          '${globalState.longitude.value}',
                                           style: heading2Style.copyWith(
                                             color: secondaryColor,
                                           ),

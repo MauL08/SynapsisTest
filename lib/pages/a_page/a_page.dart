@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'package:synapsis_test/core/global_state.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/a_page/a_state.dart';
 
@@ -14,13 +15,14 @@ class APage extends StatefulWidget {
 
 class _APageState extends State<APage> {
   final AState state = Get.put(AState());
+  final GlobalState globalState = Get.put(GlobalState());
 
   @override
   void initState() {
     super.initState();
-    state.getPosition();
+    globalState.getPosition();
     state.getCurrentBattery();
-    state.getSensorStatus();
+    globalState.getSensorStatus();
     state.getDeviceInfo();
   }
 
@@ -113,7 +115,7 @@ class _APageState extends State<APage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'X: ${state.accelerometerStatusX.value}',
+                                          'X: ${globalState.accelerometerStatusX.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -122,7 +124,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Y: ${state.accelerometerStatusY.value}',
+                                          'Y: ${globalState.accelerometerStatusY.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -131,7 +133,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Z: ${state.accelerometerStatusZ.value}',
+                                          'Z: ${globalState.accelerometerStatusZ.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -184,7 +186,7 @@ class _APageState extends State<APage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'X: ${state.gyroStatusX.value}',
+                                          'X: ${globalState.gyroStatusX.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -193,7 +195,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Y: ${state.gyroStatusY.value}',
+                                          'Y: ${globalState.gyroStatusY.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -202,7 +204,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Z: ${state.gyroStatusZ.value}',
+                                          'Z: ${globalState.gyroStatusZ.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -263,7 +265,7 @@ class _APageState extends State<APage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'X: ${state.magnetometerStatusX.value}',
+                                          'X: ${globalState.magnetometerStatusX.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -272,7 +274,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Y: ${state.magnetometerStatusY.value}',
+                                          'Y: ${globalState.magnetometerStatusY.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -281,7 +283,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Z: ${state.magnetometerStatusZ.value}',
+                                          'Z: ${globalState.magnetometerStatusZ.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -325,7 +327,7 @@ class _APageState extends State<APage> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'Lat: ${state.latitude.value}',
+                                          'Lat: ${globalState.latitude.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
@@ -334,7 +336,7 @@ class _APageState extends State<APage> {
                                           height: 6,
                                         ),
                                         Text(
-                                          'Long: ${state.longitude.value}',
+                                          'Long: ${globalState.longitude.value}',
                                           style: heading3Style.copyWith(
                                             color: secondaryColor,
                                           ),
