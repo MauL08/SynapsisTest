@@ -10,4 +10,4 @@ flutter pub get
 flutter run
 ```
 
-APK File : [Synapsis.id Challenge APK](https://drive.google.com/file/d/1gBQZc5bISr77iS3kuAKTmzfW4EWruah9/view?usp=sharing)
+APK File : [Synapsis.id Challenge APK](https://drive.google.com/file/d/1Uo2RADNAMsPk_Alxxt-dBM_03TY3E2eB/view?usp=sharing)
