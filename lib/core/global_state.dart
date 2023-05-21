@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 class GlobalState {
+  RxBool isSensorLoading = false.obs;
+  RxBool isMapLoading = false.obs;
+
   RxDouble accelerometerStatusX = RxDouble(0.0);
   RxDouble accelerometerStatusY = RxDouble(0.0);
   RxDouble accelerometerStatusZ = RxDouble(0.0);
@@ -19,6 +22,8 @@ class GlobalState {
   RxDouble longitude = RxDouble(0.0);
 
   void getPosition() async {
+    isMapLoading.value = true;
+
     bool serviceEnabled;
     LocationPermission permission;
 
@@ -45,9 +50,13 @@ class GlobalState {
     );
     latitude.value = position.latitude;
     longitude.value = position.longitude;
+
+    isMapLoading.value = false;
   }
 
   void getSensorStatus() {
+    isSensorLoading.value = true;
+
     accelerometerEvents.listen((e) {
       accelerometerStatusX.value = e.x;
       accelerometerStatusY.value = e.y;
@@ -65,5 +74,7 @@ class GlobalState {
       magnetometerStatusY.value = e.y;
       magnetometerStatusZ.value = e.z;
     });
+
+    isSensorLoading.value = false;
   }
 }

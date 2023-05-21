@@ -1,11 +1,10 @@
-import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/global_state.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/c_page/c_state.dart';
-import 'package:latlong2/latlong.dart' as latlng;
+import 'package:synapsis_test/widget/graph_render_widget.dart';
+import 'package:synapsis_test/widget/map_render_widget.dart';
 
 class CPage extends StatefulWidget {
   const CPage({super.key});
@@ -57,89 +56,9 @@ class _CPageState extends State<CPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(12, 12, 12, 12),
-                                  decoration: BoxDecoration(
-                                    color: secondaryColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  height: 400,
-                                  width: double.infinity,
-                                  child: BarChart(
-                                    BarChartData(
-                                      alignment: BarChartAlignment.center,
-                                      maxY: 100,
-                                      minY: -100,
-                                      groupsSpace: 15,
-                                      barTouchData: BarTouchData(enabled: true),
-                                      titlesData: FlTitlesData(
-                                        bottomTitles: AxisTitles(
-                                          sideTitles: SideTitles(
-                                            showTitles: true,
-                                            getTitlesWidget: (value, meta) {
-                                              String text = '';
-                                              switch (value.toInt()) {
-                                                case 1:
-                                                  text = 'X';
-                                                  break;
-                                                case 2:
-                                                  text = 'Y';
-                                                  break;
-                                                case 3:
-                                                  text = 'Z';
-                                                  break;
-                                              }
-                                              return Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 8),
-                                                child: Text(text),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      gridData: FlGridData(
-                                        getDrawingHorizontalLine: (value) {
-                                          return FlLine(
-                                            color: const Color(0xff363753),
-                                            strokeWidth: 1,
-                                          );
-                                        },
-                                      ),
-                                      barGroups: state.chartDataA
-                                          .map(
-                                            (data) => BarChartGroupData(
-                                              x: data.id,
-                                              barRods: [
-                                                BarChartRodData(
-                                                  toY: data.y,
-                                                  width: 50,
-                                                  color: Colors.green,
-                                                  borderRadius: data.y > 0
-                                                      ? const BorderRadius.only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        )
-                                                      : const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                  ),
+                                GraphRenderWidget(
+                                  data: state.chartDataA,
+                                  color: Colors.green,
                                 ),
                                 const SizedBox(
                                   height: 12,
@@ -268,89 +187,9 @@ class _CPageState extends State<CPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(12, 12, 12, 12),
-                                  decoration: BoxDecoration(
-                                    color: secondaryColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  height: 400,
-                                  width: double.infinity,
-                                  child: BarChart(
-                                    BarChartData(
-                                      alignment: BarChartAlignment.center,
-                                      maxY: 100,
-                                      minY: -100,
-                                      groupsSpace: 15,
-                                      barTouchData: BarTouchData(enabled: true),
-                                      titlesData: FlTitlesData(
-                                        bottomTitles: AxisTitles(
-                                          sideTitles: SideTitles(
-                                            showTitles: true,
-                                            getTitlesWidget: (value, meta) {
-                                              String text = '';
-                                              switch (value.toInt()) {
-                                                case 1:
-                                                  text = 'X';
-                                                  break;
-                                                case 2:
-                                                  text = 'Y';
-                                                  break;
-                                                case 3:
-                                                  text = 'Z';
-                                                  break;
-                                              }
-                                              return Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 8),
-                                                child: Text(text),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      gridData: FlGridData(
-                                        getDrawingHorizontalLine: (value) {
-                                          return FlLine(
-                                            color: const Color(0xff363753),
-                                            strokeWidth: 1,
-                                          );
-                                        },
-                                      ),
-                                      barGroups: state.chartDataB
-                                          .map(
-                                            (data) => BarChartGroupData(
-                                              x: data.id,
-                                              barRods: [
-                                                BarChartRodData(
-                                                  toY: data.y,
-                                                  width: 50,
-                                                  color: Colors.red,
-                                                  borderRadius: data.y > 0
-                                                      ? const BorderRadius.only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        )
-                                                      : const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                  ),
+                                GraphRenderWidget(
+                                  data: state.chartDataB,
+                                  color: Colors.red,
                                 ),
                                 const SizedBox(
                                   height: 12,
@@ -479,89 +318,9 @@ class _CPageState extends State<CPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(12, 12, 12, 12),
-                                  decoration: BoxDecoration(
-                                    color: secondaryColor,
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  height: 400,
-                                  width: double.infinity,
-                                  child: BarChart(
-                                    BarChartData(
-                                      alignment: BarChartAlignment.center,
-                                      maxY: 100,
-                                      minY: -100,
-                                      groupsSpace: 15,
-                                      barTouchData: BarTouchData(enabled: true),
-                                      titlesData: FlTitlesData(
-                                        bottomTitles: AxisTitles(
-                                          sideTitles: SideTitles(
-                                            showTitles: true,
-                                            getTitlesWidget: (value, meta) {
-                                              String text = '';
-                                              switch (value.toInt()) {
-                                                case 1:
-                                                  text = 'X';
-                                                  break;
-                                                case 2:
-                                                  text = 'Y';
-                                                  break;
-                                                case 3:
-                                                  text = 'Z';
-                                                  break;
-                                              }
-                                              return Container(
-                                                margin: const EdgeInsets.only(
-                                                    top: 8),
-                                                child: Text(text),
-                                              );
-                                            },
-                                          ),
-                                        ),
-                                      ),
-                                      gridData: FlGridData(
-                                        getDrawingHorizontalLine: (value) {
-                                          return FlLine(
-                                            color: const Color(0xff363753),
-                                            strokeWidth: 1,
-                                          );
-                                        },
-                                      ),
-                                      barGroups: state.chartDataC
-                                          .map(
-                                            (data) => BarChartGroupData(
-                                              x: data.id,
-                                              barRods: [
-                                                BarChartRodData(
-                                                  toY: data.y,
-                                                  width: 50,
-                                                  color: Colors.lightBlue,
-                                                  borderRadius: data.y > 0
-                                                      ? const BorderRadius.only(
-                                                          topLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          topRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        )
-                                                      : const BorderRadius.only(
-                                                          bottomLeft:
-                                                              Radius.circular(
-                                                                  6),
-                                                          bottomRight:
-                                                              Radius.circular(
-                                                                  6),
-                                                        ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                  ),
+                                GraphRenderWidget(
+                                  data: state.chartDataC,
+                                  color: Colors.lightBlue,
                                 ),
                                 const SizedBox(
                                   height: 12,
@@ -690,40 +449,19 @@ class _CPageState extends State<CPage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  height: 250,
-                                  child: FlutterMap(
-                                    mapController: MapController(),
-                                    options: MapOptions(
-                                      center: latlng.LatLng(
-                                        globalState.latitude.value,
-                                        globalState.longitude.value,
-                                      ),
-                                      zoom: 13.0,
-                                    ),
-                                    children: [
-                                      TileLayer(
-                                        urlTemplate:
-                                            'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                        subdomains: const ['a', 'b', 'c'],
-                                      ),
-                                      MarkerLayer(
-                                        markers: [
-                                          Marker(
-                                              point: latlng.LatLng(
-                                                globalState.latitude.value,
-                                                globalState.longitude.value,
-                                              ),
-                                              builder: (context) {
-                                                return const Icon(
-                                                  Icons.location_on,
-                                                  color: Colors.red,
-                                                );
-                                              })
-                                        ],
-                                      )
-                                    ],
-                                  ),
+                                Obx(
+                                  () => globalState.isMapLoading.value
+                                      ? Center(
+                                          child: CircularProgressIndicator(
+                                            color: secondaryColor,
+                                          ),
+                                        )
+                                      : MapRenderWidget(
+                                          latitude: globalState.latitude.value,
+                                          longitude:
+                                              globalState.longitude.value,
+                                          height: 250,
+                                        ),
                                 ),
                                 const SizedBox(
                                   height: 12,

@@ -1,14 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/global_state.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/camera_page/camera_state.dart';
 import 'package:camera/camera.dart';
 import 'package:intl/intl.dart';
-import 'package:latlong2/latlong.dart' as latlng;
+import 'package:synapsis_test/widget/map_render_widget.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
@@ -185,41 +184,19 @@ class _CameraPageState extends State<CameraPage> {
                                 ],
                               ),
                             ),
-                            SizedBox(
-                              height: 50,
-                              width: 50,
-                              child: FlutterMap(
-                                mapController: MapController(),
-                                options: MapOptions(
-                                  center: latlng.LatLng(
-                                    globalState.latitude.value,
-                                    globalState.longitude.value,
-                                  ),
-                                  zoom: 13.0,
-                                ),
-                                children: [
-                                  TileLayer(
-                                    urlTemplate:
-                                        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                    subdomains: const ['a', 'b', 'c'],
-                                  ),
-                                  MarkerLayer(
-                                    markers: [
-                                      Marker(
-                                          point: latlng.LatLng(
-                                            globalState.latitude.value,
-                                            globalState.longitude.value,
-                                          ),
-                                          builder: (context) {
-                                            return const Icon(
-                                              Icons.location_on,
-                                              color: Colors.red,
-                                            );
-                                          })
-                                    ],
-                                  )
-                                ],
-                              ),
+                            Obx(
+                              () => globalState.isMapLoading.value
+                                  ? Center(
+                                      child: CircularProgressIndicator(
+                                        color: secondaryColor,
+                                      ),
+                                    )
+                                  : MapRenderWidget(
+                                      latitude: globalState.latitude.value,
+                                      longitude: globalState.longitude.value,
+                                      height: 50,
+                                      width: 50,
+                                    ),
                             ),
                             Container(
                               padding: const EdgeInsets.all(8),

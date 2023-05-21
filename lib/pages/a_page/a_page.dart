@@ -21,8 +21,8 @@ class _APageState extends State<APage> {
   void initState() {
     super.initState();
     globalState.getPosition();
-    state.getCurrentBattery();
     globalState.getSensorStatus();
+    state.getCurrentBattery();
     state.getDeviceInfo();
   }
 
