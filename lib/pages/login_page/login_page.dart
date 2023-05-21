@@ -21,6 +21,12 @@ class _LoginPageState extends State<LoginPage> {
   final BState stateB = Get.put(BState());
 
   @override
+  void initState() {
+    super.initState();
+    stateB.initPhoneBuildData();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -116,12 +122,11 @@ class _LoginPageState extends State<LoginPage> {
                       padding: pagePadding,
                     ),
                     onPressed: () async {
-                      state.usernameText.text = stateB.deviceData['model'];
-
                       final isAuthenticated = await state.authBio();
 
                       if (isAuthenticated) {
                         if (!mounted) return;
+                        state.usernameText.text = stateB.deviceData['model'];
                         state.postLogin();
                         ScaffoldMessenger.of(context)
                             .showSnackBar(state.snackBarSuccess);
