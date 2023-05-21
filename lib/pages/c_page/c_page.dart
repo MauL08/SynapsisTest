@@ -4,7 +4,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/c_page/c_state.dart';
-import 'package:latlong2/latlong.dart' as latLng;
+import 'package:latlong2/latlong.dart' as latlng;
 
 class CPage extends StatefulWidget {
   const CPage({super.key});
@@ -33,7 +33,7 @@ class _CPageState extends State<CPage> {
               color: primaryColor,
             ))
           : SafeArea(
-            child: StreamBuilder(
+              child: StreamBuilder(
                 stream: Stream.periodic(
                   const Duration(seconds: 1),
                 ),
@@ -89,8 +89,8 @@ class _CPageState extends State<CPage> {
                                                   break;
                                               }
                                               return Container(
-                                                margin:
-                                                    const EdgeInsets.only(top: 8),
+                                                margin: const EdgeInsets.only(
+                                                    top: 8),
                                                 child: Text(text),
                                               );
                                             },
@@ -117,15 +117,19 @@ class _CPageState extends State<CPage> {
                                                   borderRadius: data.y > 0
                                                       ? const BorderRadius.only(
                                                           topLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           topRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         )
                                                       : const BorderRadius.only(
                                                           bottomLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           bottomRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         ),
                                                 ),
                                               ],
@@ -296,8 +300,8 @@ class _CPageState extends State<CPage> {
                                                   break;
                                               }
                                               return Container(
-                                                margin:
-                                                    const EdgeInsets.only(top: 8),
+                                                margin: const EdgeInsets.only(
+                                                    top: 8),
                                                 child: Text(text),
                                               );
                                             },
@@ -324,15 +328,19 @@ class _CPageState extends State<CPage> {
                                                   borderRadius: data.y > 0
                                                       ? const BorderRadius.only(
                                                           topLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           topRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         )
                                                       : const BorderRadius.only(
                                                           bottomLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           bottomRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         ),
                                                 ),
                                               ],
@@ -503,8 +511,8 @@ class _CPageState extends State<CPage> {
                                                   break;
                                               }
                                               return Container(
-                                                margin:
-                                                    const EdgeInsets.only(top: 8),
+                                                margin: const EdgeInsets.only(
+                                                    top: 8),
                                                 child: Text(text),
                                               );
                                             },
@@ -531,15 +539,19 @@ class _CPageState extends State<CPage> {
                                                   borderRadius: data.y > 0
                                                       ? const BorderRadius.only(
                                                           topLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           topRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         )
                                                       : const BorderRadius.only(
                                                           bottomLeft:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                           bottomRight:
-                                                              Radius.circular(6),
+                                                              Radius.circular(
+                                                                  6),
                                                         ),
                                                 ),
                                               ],
@@ -681,7 +693,7 @@ class _CPageState extends State<CPage> {
                                   child: FlutterMap(
                                     mapController: MapController(),
                                     options: MapOptions(
-                                      center: latLng.LatLng(
+                                      center: latlng.LatLng(
                                         state.latitude.value,
                                         state.longitude.value,
                                       ),
@@ -696,7 +708,7 @@ class _CPageState extends State<CPage> {
                                       MarkerLayer(
                                         markers: [
                                           Marker(
-                                              point: latLng.LatLng(
+                                              point: latlng.LatLng(
                                                 state.latitude.value,
                                                 state.longitude.value,
                                               ),
@@ -802,7 +814,7 @@ class _CPageState extends State<CPage> {
                   );
                 }),
               ),
-          ),
+            ),
     ));
   }
 }

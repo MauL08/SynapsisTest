@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:synapsis_test/core/theme.dart';
@@ -10,7 +8,7 @@ import 'package:synapsis_test/pages/login_page/qr_page.dart';
 import 'package:synapsis_test/widget/text_field_widget.dart';
 
 class LoginPage extends StatefulWidget {
-  LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -93,7 +91,7 @@ class _LoginPageState extends State<LoginPage> {
                                 .showSnackBar(state.snackBarSuccess);
                             Navigator.pushAndRemoveUntil(context,
                                 MaterialPageRoute(builder: (context) {
-                              return DashboardPage();
+                              return const DashboardPage();
                             }), (route) => false);
                           }
                         },
@@ -134,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return DashboardPage();
+                              return const DashboardPage();
                             },
                           ),
                         );
@@ -168,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return QRPage();
+                        return const QRPage();
                       }));
                     },
                     child: Column(

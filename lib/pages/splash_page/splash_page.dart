@@ -13,9 +13,9 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return LoginPage();
+        return const LoginPage();
       }));
     });
   }

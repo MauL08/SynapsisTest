@@ -41,7 +41,9 @@ class CameraState {
       await cameraController.setFlashMode(FlashMode.auto);
       XFile pict = await cameraController.takePicture();
       imagePath.value = pict.path;
-    } catch (e) {}
+    } catch (e) {
+      e.toString();
+    }
     doAfter();
     isLoadPict.value = false;
   }

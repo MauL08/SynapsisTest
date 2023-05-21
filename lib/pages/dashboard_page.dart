@@ -7,7 +7,7 @@ import 'package:synapsis_test/pages/camera_page/camera_page.dart';
 import 'package:synapsis_test/pages/drawer_page/drawer_page.dart';
 
 class DashboardPage extends StatefulWidget {
-  DashboardPage({super.key});
+  const DashboardPage({super.key});
 
   @override
   State<DashboardPage> createState() => _DashboardPageState();
@@ -16,10 +16,10 @@ class DashboardPage extends StatefulWidget {
 class _DashboardPageState extends State<DashboardPage> {
   int _selectedItem = 0;
 
-  List<Widget> _pages = [
-    APage(),
-    BPage(),
-    CPage(),
+  final List<Widget> _pages = [
+    const APage(),
+    const BPage(),
+    const CPage(),
   ];
 
   @override
@@ -27,27 +27,27 @@ class _DashboardPageState extends State<DashboardPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: backgroundColor2,
-        title: Text('Synapsis.ID Challenge'),
+        title: const Text('Synapsis.ID Challenge'),
         centerTitle: true,
         actions: [
           IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: ((context) {
-                return CameraPage();
+                return const CameraPage();
               })));
             },
-            icon: Icon(Icons.camera_alt_rounded),
+            icon: const Icon(Icons.camera_alt_rounded),
           ),
         ],
       ),
-      drawer: DrawerPage(),
+      drawer: const DrawerPage(),
       body: _pages[_selectedItem],
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
         backgroundColor: backgroundColor,
         selectedItemColor: primaryColor,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-        selectedIconTheme: IconThemeData(size: 30),
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        selectedIconTheme: const IconThemeData(size: 30),
         unselectedItemColor: secondaryColor,
         currentIndex: _selectedItem,
         onTap: ((value) {
@@ -55,7 +55,7 @@ class _DashboardPageState extends State<DashboardPage> {
             _selectedItem = value;
           });
         }),
-        items: [
+        items: const [
           BottomNavigationBarItem(
             label: 'Page A',
             icon: Icon(Icons.abc),

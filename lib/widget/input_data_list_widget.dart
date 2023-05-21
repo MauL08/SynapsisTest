@@ -32,7 +32,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                 )
               : Flexible(
                   child: ListView.builder(
-                    padding: EdgeInsets.only(bottom: 42),
+                    padding: const EdgeInsets.only(bottom: 42),
                     itemCount: state.dataList.length,
                     itemBuilder: (context, index) {
                       return Card(
@@ -51,7 +51,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                                         child: Container(
                                           height: 300,
                                           width: 300,
-                                          padding: EdgeInsets.all(16),
+                                          padding: const EdgeInsets.all(16),
                                           decoration: BoxDecoration(
                                             color: Colors.white,
                                             borderRadius:
@@ -67,7 +67,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                                                 version: QrVersions.auto,
                                                 size: 200.0,
                                               ),
-                                              SizedBox(height: 12),
+                                              const SizedBox(height: 12),
                                               Text(
                                                 '${state.dataList[index]['title']}',
                                                 style: heading1Style,
@@ -84,7 +84,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                                   color: backgroundColor,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 12,
                               ),
                               GestureDetector(
@@ -98,7 +98,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                                   color: Colors.green.shade700,
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 12,
                               ),
                               GestureDetector(
@@ -106,7 +106,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
                                   state.delete(state.dataList[index]['id']);
                                   state.getAll();
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.delete,
                                   color: Colors.red,
                                 ),
@@ -148,7 +148,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             backgroundColor: primaryColor,
           ),
           onPressed: () async {
@@ -156,7 +156,7 @@ class _InputDataListWidgetState extends State<InputDataListWidget> {
             state.getAll();
             Navigator.pop(context);
           },
-          child: Text('Edit Text'),
+          child: const Text('Edit Text'),
         ),
         const SizedBox(
           height: 24,

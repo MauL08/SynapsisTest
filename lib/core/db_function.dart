@@ -60,6 +60,8 @@ class DBFunction {
 
     try {
       await db.delete('data', where: 'id = ?', whereArgs: [id]);
-    } catch (e) {}
+    } catch (e) {
+      e.toString();
+    }
   }
 }

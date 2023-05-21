@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -8,7 +6,7 @@ import 'package:synapsis_test/pages/dashboard_page.dart';
 import 'package:synapsis_test/pages/login_page/login_state.dart';
 
 class QRPage extends StatefulWidget {
-  QRPage({Key? key}) : super(key: key);
+  const QRPage({Key? key}) : super(key: key);
 
   @override
   State<QRPage> createState() => _QRPageState();
@@ -39,7 +37,7 @@ class _QRPageState extends State<QRPage> {
                 child: Row(
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back,
                     color: Colors.white,
                   ),
@@ -72,7 +70,7 @@ class _QRPageState extends State<QRPage> {
           context,
           MaterialPageRoute(
             builder: (context) {
-              return DashboardPage();
+              return const DashboardPage();
             },
           ),
         );

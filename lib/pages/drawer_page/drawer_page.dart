@@ -5,7 +5,7 @@ import 'package:synapsis_test/pages/login_page/login_page.dart';
 import 'package:synapsis_test/pages/login_page/login_state.dart';
 
 class DrawerPage extends StatefulWidget {
-  DrawerPage({super.key});
+  const DrawerPage({super.key});
 
   @override
   State<DrawerPage> createState() => _DrawerPageState();
@@ -27,19 +27,19 @@ class _DrawerPageState extends State<DrawerPage> {
       child: SafeArea(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             CircleAvatar(
               radius: 54,
               backgroundColor: primaryColor,
-              child: Icon(
+              child: const Icon(
                 Icons.person,
                 size: 54,
                 color: Colors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             Obx(
@@ -57,7 +57,7 @@ class _DrawerPageState extends State<DrawerPage> {
                       ),
                     ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             ElevatedButton(
@@ -71,7 +71,7 @@ class _DrawerPageState extends State<DrawerPage> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
               ),
-              child: Row(
+              child: const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text('Logout'),

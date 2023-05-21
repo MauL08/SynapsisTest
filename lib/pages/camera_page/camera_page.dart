@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -8,7 +7,7 @@ import 'package:synapsis_test/core/theme.dart';
 import 'package:synapsis_test/pages/camera_page/camera_state.dart';
 import 'package:camera/camera.dart';
 import 'package:intl/intl.dart';
-import 'package:latlong2/latlong.dart' as latLng;
+import 'package:latlong2/latlong.dart' as latlng;
 
 class CameraPage extends StatefulWidget {
   const CameraPage({super.key});
@@ -36,7 +35,7 @@ class _CameraPageState extends State<CameraPage> {
         builder: (context, snapshot) {
           return Stack(
             children: [
-              Container(
+              SizedBox(
                 height: double.infinity,
                 child: CameraPreview(state.cameraController),
               ),
@@ -50,13 +49,13 @@ class _CameraPageState extends State<CameraPage> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.arrow_circle_left_rounded,
                           color: Colors.white,
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 4),
+                        margin: const EdgeInsets.only(right: 4),
                         padding: const EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           color: Colors.black,
@@ -84,7 +83,7 @@ class _CameraPageState extends State<CameraPage> {
                                   child: Container(
                                     height: 400,
                                     width: 300,
-                                    padding: EdgeInsets.all(16),
+                                    padding: const EdgeInsets.all(16),
                                     decoration: BoxDecoration(
                                       color: backgroundColor,
                                       borderRadius: BorderRadius.circular(8),
@@ -102,7 +101,7 @@ class _CameraPageState extends State<CameraPage> {
                                             color: Colors.white,
                                           ),
                                         ),
-                                        SizedBox(height: 12),
+                                        const SizedBox(height: 12),
                                         Image.file(
                                           File(state.imagePath.value),
                                           height: 300,
@@ -117,8 +116,8 @@ class _CameraPageState extends State<CameraPage> {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          shape: CircleBorder(),
-                          padding: EdgeInsets.all(36),
+                          shape: const CircleBorder(),
+                          padding: const EdgeInsets.all(36),
                           backgroundColor: Colors.white,
                         ),
                         child: Obx(
@@ -144,7 +143,7 @@ class _CameraPageState extends State<CameraPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                              padding: EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(8),
@@ -153,12 +152,12 @@ class _CameraPageState extends State<CameraPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.location_pin,
                                         color: Colors.white,
                                         size: 18,
                                       ),
-                                      SizedBox(width: 4),
+                                      const SizedBox(width: 4),
                                       Text(
                                         'GPS Coordinate',
                                         style: heading2Style.copyWith(
@@ -167,14 +166,14 @@ class _CameraPageState extends State<CameraPage> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     'Lat : ${state.latitude}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text(
                                     'Lat : ${state.longitude}',
                                     style: heading3Style.copyWith(
@@ -190,7 +189,7 @@ class _CameraPageState extends State<CameraPage> {
                               child: FlutterMap(
                                 mapController: MapController(),
                                 options: MapOptions(
-                                  center: latLng.LatLng(
+                                  center: latlng.LatLng(
                                     state.latitude.value,
                                     state.longitude.value,
                                   ),
@@ -205,7 +204,7 @@ class _CameraPageState extends State<CameraPage> {
                                   MarkerLayer(
                                     markers: [
                                       Marker(
-                                          point: latLng.LatLng(
+                                          point: latlng.LatLng(
                                             state.latitude.value,
                                             state.longitude.value,
                                           ),
@@ -221,7 +220,7 @@ class _CameraPageState extends State<CameraPage> {
                               ),
                             ),
                             Container(
-                              padding: EdgeInsets.all(8),
+                              padding: const EdgeInsets.all(8),
                               decoration: BoxDecoration(
                                 color: Colors.black,
                                 borderRadius: BorderRadius.circular(8),
@@ -230,12 +229,12 @@ class _CameraPageState extends State<CameraPage> {
                                 children: [
                                   Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.switch_right_rounded,
                                         color: Colors.white,
                                         size: 18,
                                       ),
-                                      SizedBox(width: 4),
+                                      const SizedBox(width: 4),
                                       Text(
                                         'Magneto',
                                         style: heading2Style.copyWith(
@@ -244,21 +243,21 @@ class _CameraPageState extends State<CameraPage> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 8),
+                                  const SizedBox(height: 8),
                                   Text(
                                     'X : ${state.magnetometerStatusX}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text(
                                     'Y : ${state.magnetometerStatusY}',
                                     style: heading3Style.copyWith(
                                       color: Colors.white,
                                     ),
                                   ),
-                                  SizedBox(height: 4),
+                                  const SizedBox(height: 4),
                                   Text(
                                     'Z : ${state.magnetometerStatusZ}',
                                     style: heading3Style.copyWith(

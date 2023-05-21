@@ -225,14 +225,14 @@ class _BPageState extends State<BPage> {
               const SizedBox(
                 height: 8,
               ),
-              Divider(
+              const Divider(
                 thickness: 2,
                 height: 10,
               ),
               const SizedBox(
                 height: 8,
               ),
-              InputDataListWidget(),
+              const InputDataListWidget(),
             ],
           ),
         ),
@@ -242,7 +242,7 @@ class _BPageState extends State<BPage> {
         onPressed: () {
           renderBottomSheet();
         },
-        child: Icon(
+        child: const Icon(
           Icons.add,
           color: Colors.white,
         ),
@@ -277,7 +277,7 @@ class _BPageState extends State<BPage> {
         ),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 16),
+            padding: const EdgeInsets.symmetric(vertical: 16),
             backgroundColor: primaryColor,
           ),
           onPressed: () async {
@@ -285,7 +285,7 @@ class _BPageState extends State<BPage> {
             state.getAll();
             Navigator.pop(context);
           },
-          child: Text('Add Text'),
+          child: const Text('Add Text'),
         ),
         const SizedBox(
           height: 24,
