@@ -25,6 +25,7 @@ class _CameraPageState extends State<CameraPage> {
     super.initState();
     globalState.getPosition();
     globalState.getSensorStatus();
+    state.initCamera();
   }
 
   @override

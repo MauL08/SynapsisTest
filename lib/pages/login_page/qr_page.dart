@@ -13,9 +13,15 @@ class QRPage extends StatefulWidget {
 }
 
 class _QRPageState extends State<QRPage> {
-  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? controller;
   final LoginState state = Get.put(LoginState());
+  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+
+  QRViewController? controller;
+  @override
+  void initState() {
+    super.initState();
+    WidgetsFlutterBinding.ensureInitialized();
+  }
 
   @override
   Widget build(BuildContext context) {
