@@ -35,10 +35,26 @@ class _QRPageState extends State<QRPage> {
           ),
           Scaffold(
             backgroundColor: Colors.transparent,
-            appBar: AppBar(
-              backgroundColor: backgroundColor,
-              title: Text('QR Code Login'),
-            ),
+            body: SafeArea(
+                child: Row(
+              children: [
+                IconButton(
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                Text(
+                  'QR Code Login',
+                  style: heading1Style.copyWith(
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            )),
           ),
         ],
       ),
